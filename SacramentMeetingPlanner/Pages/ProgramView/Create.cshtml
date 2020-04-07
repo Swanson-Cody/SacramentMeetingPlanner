@@ -1,0 +1,89 @@
+﻿@page
+@using SacramentMeetingPlanner.Models
+@model SacramentMeetingPlanner.Pages.Program.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Program</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Program.DateOfMeeting" class="control-label"></label>
+                <input asp-for="Program.DateOfMeeting" class="form-control" />
+                <span asp-validation-for="Program.DateOfMeeting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Program.ConductingLeader" class="control-label"></label>
+                <input asp-for="Program.ConductingLeader" class="form-control" />
+                <span asp-validation-for="Program.ConductingLeader" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Program.OpeningSong" class="control-label"></label>
+                <input asp-for="Program.OpeningSong" class="form-control" />
+                <span asp-validation-for="Program.OpeningSong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Program.OpeningPrayer" class="control-label"></label>
+                <input asp-for="Program.OpeningPrayer" class="form-control" />
+                <span asp-validation-for="Program.OpeningPrayer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Program.SacramentHymn" class="control-label"></label>
+                <input asp-for="Program.SacramentHymn" class="form-control" />
+                <span asp-validation-for="Program.SacramentHymn" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label>Speakers</label>
+                @for (int i = 0; i < Model.Speakers.Count; i++)
+                {
+                    <input asp-for="@i" type="hidden" />
+                    <div class="form-group">
+                        <select asp-for="@Model.Speakers[i].SpeakerTitle" asp-items="Html.GetEnumSelectList<Title.TitleOfPerson>()" class="form-control">
+                            <option selected="selected" value="">Title</option>
+                        </select>
+                        <input type="text" class="form-control" asp-for="@Model.Speakers[i].FullNameOfSpeaker" placeholder="Enter full name here.">
+                        <input type="text" class="form-control" asp-for="@Model.Speakers[i].TalkSubject" placeholder="Enter subject of talk here.">
+                    </div>
+
+                    <button type="submit" asp-page-handler="removeSpeaker" asp-route-id="@i" asp-route-index="@i">x</button>
+                }
+                <button type="submit" asp-page-handler="addSpeaker">Add Speaker</button>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Program.IntermediateMusic" class="control-label"></label>
+                <input asp-for="Program.IntermediateMusic" class="form-control" />
+                <span asp-validation-for="Program.IntermediateMusic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Program.ClosingSong" class="control-label"></label>
+                <input asp-for="Program.ClosingSong" class="form-control" />
+                <span asp-validation-for="Program.ClosingSong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Program.ClosingPrayer" class="control-label"></label>
+                <input asp-for="Program.ClosingPrayer" class="form-control" />
+                <span asp-validation-for="Program.ClosingPrayer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" asp-page-handler="saveprogram" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

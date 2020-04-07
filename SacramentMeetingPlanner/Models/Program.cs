@@ -14,7 +14,8 @@ namespace SacramentMeetingPlanner.Models
         [DataType(DataType.Date)]
         public DateTime DateOfMeeting { get; set; }
 
-        [Display(Name = "Conductor")] public string ConductingLeader { get; set; }
+        [Display(Name = "Conductor")]
+        public string ConductingLeader { get; set; }
 
         [Display(Name = "Opening Song")]
         public string OpeningSong { get; set; }

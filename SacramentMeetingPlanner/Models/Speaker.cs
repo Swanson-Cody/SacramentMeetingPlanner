@@ -14,12 +14,11 @@ namespace SacramentMeetingPlanner.Models
         //foreign key
         public int ProgramId { get; set; }
 
-        [Display(Name = "First name of speaker")]
-        public string SpeakerFirstName { get; set; }
-
-        [Display(Name = "Last name of speaker")]
-        public string SpeakerLastName { get; set; }
+        [Display(Name = "Full Name")]
+        public string FullNameOfSpeaker { get; set; }
 
         public string TalkSubject { get; set; }
+
+        public string SpeakerTitle { get; set; }
     }
 }
