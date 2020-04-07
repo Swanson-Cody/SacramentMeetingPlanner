@@ -25,6 +25,7 @@ namespace SacramentMeetingPlanner.Pages.Program
         public async Task OnGetAsync()
         {
             Program = await _context.Program.ToListAsync();
+            Speakers = await _context.Speaker.ToListAsync();
         }
     }
 }

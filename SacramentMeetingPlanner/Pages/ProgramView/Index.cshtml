@@ -10,96 +10,10 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Program[0].DateOfMeeting)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Program[0].ConductingLeader)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Program[0].OpeningSong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Program[0].OpeningPrayer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Program[0].SacramentHymn)
-            </th>
 
-            @foreach (var speaker in @Model.Speakers)
-            {
-                <td>
-                    @Html.DisplayFor(model => speaker.SpeakerTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => speaker.FullNameOfSpeaker)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => speaker.TalkSubject)
-                </td>
-            }
-
-            <th>
-                @Html.DisplayNameFor(model => model.Program[0].IntermediateMusic)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Program[0].ClosingSong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Program[0].ClosingPrayer)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in @Model.Program) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfMeeting)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConductingLeader)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpeningSong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpeningPrayer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SacramentHymn)
-            </td>
-
-            @foreach (var speaker in @Model.Speakers) {
-                <td>
-                    @Html.DisplayFor(model => speaker.SpeakerTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => speaker.FullNameOfSpeaker)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => speaker.TalkSubject)
-                </td>
-            }
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.IntermediateMusic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClosingSong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClosingPrayer)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ProgramID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ProgramID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ProgramID">Delete</a>
-            </td>
-        </tr>
+@foreach (var item in Model.Program)
+{
+    <h5>
+        <a asp-page="DisplayProgram" asp-route-id="@item.ProgramID">@Html.DisplayFor(Model => item.DateOfMeeting)<a asp-page="./Edit" asp-route-id="@item.ProgramID">Edit</a> <span>|</span> <a asp-page="./Delete" asp-route-id="@item.ProgramID">Delete</a></a>
+    </h5>
 }
-    </tbody>
-</table>
