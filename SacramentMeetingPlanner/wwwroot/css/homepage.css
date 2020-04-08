@@ -1,8 +1,12 @@
-﻿.christus-image {
+﻿h1 {
+    margin-bottom: 20px;
+}
+.christus-image {
     display: block;
     margin: 0 auto;
     max-width: 100%;
     height: auto;
     -ms-border-radius: 5px;
     border-radius: 5px;
+    margin-top: 50px;
 }
