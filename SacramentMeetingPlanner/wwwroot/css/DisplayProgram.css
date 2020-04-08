@@ -27,6 +27,10 @@ white fffeff
     border-color: gray;
 }
 
+.remove-line {
+    border: none;
+}
+
 .col-sm {
     padding-top: 5px;
     padding-bottom: 5px;

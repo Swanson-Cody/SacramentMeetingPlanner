@@ -68,9 +68,13 @@
             <div class="participant-title col-sm">
                 @Html.DisplayFor(Model => speaker.ParticipantTitle)
                 <span class="participant-name">@Html.DisplayFor(Model => speaker.FullNameOfParticipant)</span>
-                <span class="col-sm">@Html.DisplayFor(Model => speaker.TalkSubject)</span>
             </div>
         </div>
+        <div class="row remove-line">
+            <div class="col-sm">Topic</div>
+            <div class="col-sm">@Html.DisplayFor(Model => speaker.TalkSubject)</div>
+        </div>
+
     }
 
     <div class="row line">
