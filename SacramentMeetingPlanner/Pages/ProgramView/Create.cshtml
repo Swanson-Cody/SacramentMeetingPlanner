@@ -122,8 +122,8 @@
                             <option value="Counselor">Counselor</option>
                         </select>
                         <input asp-for="Program.Participants[i].ParticipantTitle" value="" type="hidden" />
-                        <input type="text" class="form-control" asp-for="@Model.Program.Participants[i].FullNameOfParticipant" placeholder="Enter full name here.">
-                        <input type="text" class="form-control" asp-for="@Model.Program.Participants[i].TalkSubject" placeholder="Enter subject of talk here.">
+                        <input type="text" class="form-control" asp-for="@Model.Program.Participants[i].FullNameOfParticipant" placeholder="Name">
+                        <input type="text" class="form-control" asp-for="@Model.Program.Participants[i].TalkSubject" placeholder="Name">
                     </div>
 
                     <button type="submit" asp-page-handler="removeParticipant" asp-route-id="@i" asp-route-index="@i">Remove Speaker</button>
