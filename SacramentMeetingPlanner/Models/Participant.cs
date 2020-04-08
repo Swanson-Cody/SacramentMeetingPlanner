@@ -22,5 +22,6 @@ namespace SacramentMeetingPlanner.Models
         public string ParticipantRole { get; set; }
 
         public int ProgramID { get; set; }
+
     }
 }
