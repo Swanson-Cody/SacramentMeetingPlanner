@@ -10,6 +10,10 @@
     var programId = Model.Program.ProgramID;
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/CreateEditDelete.css" />
+</head>
+
 <h1>Edit Program</h1>
 
 <h4>Program</h4>
@@ -136,13 +140,13 @@
                         <input type="text" class="form-control" asp-for="@Model.Program.Participants[i].TalkSubject" placeholder="Enter subject of talk here.">
                     </div>
 
-                    <button type="submit" asp-page-handler="removeParticipant" asp-route-id="@i" asp-route-index="@i">x</button>
+                    <button type="submit" asp-page-handler="removeParticipant" asp-route-id="@i" asp-route-index="@i">Remove Speaker</button>
                 }
                 <button type="submit" asp-page-handler="addParticipant">Add Speaker</button>
             </div>
             
             <div class="form-group">
-                <input type="submit" value="Update" asp-page-handler="saveprogram" class="btn btn-primary" />
+                <input type="submit" value="Update Program" asp-page-handler="saveprogram" class="btn btn-primary" />
             </div>
         </form>
     </div>

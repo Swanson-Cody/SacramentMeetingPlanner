@@ -1,0 +1,15 @@
+﻿.btn-primary {
+    margin-top: 50px;
+}
+
+button {
+    display: block;
+}
+
+button {
+    margin-top: -10px;
+}
+
+button:last-of-type {
+    margin-top: 20px;
+}
