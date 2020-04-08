@@ -7,6 +7,7 @@
 @{
     ViewData["Title"] = "Edit Program";
     var conductingLeader = Model.Program.Participants.FirstOrDefault(x => x.ParticipantRole == ParticipantRoles.ConductingLeader.ToString());
+    var programId = Model.Program.ProgramID;
 }
 
 <h1>Edit Program</h1>
@@ -17,6 +18,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="Program.ProgramID" value="@programId" type="hidden" />
             <div class="form-group">
                 <label asp-for="Program.DateOfMeeting" class="control-label"></label>
                 <input asp-for="Program.DateOfMeeting" class="form-control" />
@@ -24,6 +26,8 @@
             </div>
 
             <div class="form-group">
+                <input asp-for="Program.Participants[0].ProgramID" value="@programId" type="hidden" />
+                <input asp-for="Program.Participants[0].ParticipantID" value="@Model.Program.Participants[0].ParticipantID" type="hidden" />
                 <input asp-for="Program.Participants[0].ParticipantRole" value="@ParticipantRoles.PresidingLeader.ToString()" type="hidden" />
                 <label class="control-label">Presiding</label>
                 <select asp-for="Program.Participants[0].ParticipantTitle" class="form-control">
@@ -40,6 +44,8 @@
             </div>
 
             <div class="form-group">
+                <input asp-for="Program.Participants[1].ProgramID" value="@programId" type="hidden" />
+                <input asp-for="Program.Participants[1].ParticipantID" value="@Model.Program.Participants[1].ParticipantID" type="hidden" />
                 <input asp-for="Program.Participants[1].ParticipantRole" value="@ParticipantRoles.ConductingLeader.ToString()" type="hidden" />
                 <label class="control-label">Conducting</label>
                 <select asp-for="Program.Participants[1].ParticipantTitle" class="form-control">
@@ -62,6 +68,8 @@
             </div>
 
             <div class="form-group">
+                <input asp-for="Program.Participants[2].ProgramID" value="@programId" type="hidden" />
+                <input asp-for="Program.Participants[2].ParticipantID" value="@Model.Program.Participants[2].ParticipantID" type="hidden" />
                 <input asp-for="Program.Participants[2].ParticipantRole" value="@ParticipantRoles.OpeningPrayer.ToString()" type="hidden" />
                 <label class="control-label">Opening Prayer</label>
                 <select asp-for="Program.Participants[2].ParticipantTitle" class="form-control">
@@ -89,6 +97,8 @@
             </div>
 
             <div class="form-group">
+                <input asp-for="Program.Participants[3].ProgramID" value="@programId" type="hidden" />
+                <input asp-for="Program.Participants[3].ParticipantID" value="@Model.Program.Participants[3].ParticipantID" type="hidden" />
                 <input asp-for="Program.Participants[3].ParticipantRole" value="@ParticipantRoles.ClosingPrayer.ToString()" type="hidden" />
                 <label class="control-label">Closing Prayer</label>
                 <select asp-for="Program.Participants[3].ParticipantTitle" class="form-control">
@@ -109,7 +119,8 @@
                 @for (int i = 4; i < Model.Program.Participants.Where(x => x.ParticipantRole == ParticipantRoles.Speaker.ToString()).ToList().Count + 4; i++)
                 {
                     <input asp-for="@i" type="hidden" />
-                    <input asp-for="Program.Participants[i].ParticipantRole" value="@ParticipantRoles.Speaker.ToString()" type="hidden" />
+                    <input asp-for="Program.Participants[i].ProgramID" value="@programId" type="hidden" />
+                    <input asp-for="Program.Participants[i].ParticipantID" value="@Model.Program.Participants[i].ParticipantID" type="hidden" />                    <input asp-for="Program.Participants[i].ParticipantRole" value="@ParticipantRoles.Speaker.ToString()" type="hidden" />
                     <div class="form-group">
                         <select asp-for="@Model.Program.Participants[i].ParticipantTitle" class="form-control">
                             <option disabled>Title</option>
@@ -129,9 +140,9 @@
                 }
                 <button type="submit" asp-page-handler="addParticipant">Add Speaker</button>
             </div>
-
+            
             <div class="form-group">
-                <input type="submit" value="Create" asp-page-handler="saveprogram" class="btn btn-primary" />
+                <input type="submit" value="Update" asp-page-handler="saveprogram" class="btn btn-primary" />
             </div>
         </form>
     </div>

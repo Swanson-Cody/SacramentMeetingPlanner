@@ -35,7 +35,7 @@ namespace SacramentMeetingPlanner.Pages.Program
             }
 
             Program = await _context.Program.FirstOrDefaultAsync(m => m.ProgramID == id);
-            Program.Participants = await _context.Participant.Where(x => x.ProgramID == Program.ProgramID).ToListAsync();
+            Participants = await _context.Participant.Where(x => x.ProgramID == Program.ProgramID).ToListAsync();
 
             if (Program == null)
             {
@@ -56,10 +56,14 @@ namespace SacramentMeetingPlanner.Pages.Program
             try
             {
                 _context.Attach(Program).State = EntityState.Modified;
+                //_context.Program.Update(Program);
                 await _context.SaveChangesAsync();
 
-                _context.Participant.UpdateRange(Participants);
-                await _context.SaveChangesAsync();
+                foreach (var participant in Program.Participants)
+                {
+                    _context.Attach(participant).State = EntityState.Modified;
+                    await _context.SaveChangesAsync();
+                }
             }
             catch (DbUpdateConcurrencyException)
             {
