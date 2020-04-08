@@ -7,18 +7,30 @@
     <link rel="stylesheet" href="~/css/DisplayProgram.css" />
 </head>
 <div class="sacrament-program">
-    <h1>Sacrament Program</h1>
-    <h3>@Model.Program.DateOfMeeting.ToShortDateString()</h3>
+    <div class="jumbotron">
+        <h1>Sacrament Program</h1>
+        <h5 class="font-italic">@Model.Program.DateOfMeeting.ToShortDateString()</h5>
+    </div>
 
     @*<p>@Html.DisplayNameFor(Model => Model.Program.PresidingLeader)</p>
-    <p>@Model.Program.Participants.Where(x => x)</p>*@
+        <p>@Model.Program.Participants.Where(x => x)</p>*@
 
-    @foreach (var participant in @Model.Program.Participants)
-    {
-        <p class="participant-role">@Html.DisplayFor(Model => participant.ParticipantRole)</p>
-        <p class="participant-title">@Html.DisplayFor(Model => participant.ParticipantTitle)</p>
-        <p class="participant-name">@Html.DisplayFor(Model => participant.FullNameOfParticipant)</p>
-        <p class="talk-subject">@Html.DisplayFor(Model => participant.TalkSubject)</p>
-    }
+    @foreach (var participant in @Model.Program.Participants) {
+        <div class="row line">
+            <div class="participant-role col-sm">@Html.DisplayFor(Model => participant.ParticipantRole)</div>
+            <div class="participant-title col-sm">
+                @Html.DisplayFor(Model => participant.ParticipantTitle)
+            <span class="participant-name">@Html.DisplayFor(Model => participant.FullNameOfParticipant)</span>
+        </div>
+    </div>
+    <div class="row subject">
+        <div class="col-sm"></div>
+        <div class="talk-subject col-sm">@Html.DisplayFor(Model => participant.TalkSubject)</div>
+    </div>
+    <br />
+    <br />
+
+
+}
 </div>
 <a asp-page="./Index">Back to Programs</a>
