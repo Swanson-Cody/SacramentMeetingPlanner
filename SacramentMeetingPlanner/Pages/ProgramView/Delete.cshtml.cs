@@ -21,6 +21,9 @@ namespace SacramentMeetingPlanner.Pages.Program
 
         [BindProperty]
         public Models.Program Program { get; set; }
+        
+        [BindProperty]
+        public List<Participant> Participants { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,6 +33,7 @@ namespace SacramentMeetingPlanner.Pages.Program
             }
 
             Program = await _context.Program.FirstOrDefaultAsync(m => m.ProgramID == id);
+            Program.Participants = await _context.Participant.Where(x => x.ProgramID == Program.ProgramID).ToListAsync();
 
             if (Program == null)
             {
