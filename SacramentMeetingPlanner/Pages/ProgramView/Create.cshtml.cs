@@ -35,7 +35,6 @@ namespace SacramentMeetingPlanner.Pages.Program
                     }
                 }
             };
-            //Program.Participants = new List<Participant> { new Participant() };
         }
 
         public IActionResult OnGet()
@@ -66,12 +65,6 @@ namespace SacramentMeetingPlanner.Pages.Program
             {
                 return Page();
             }
-
-            //foreach (var participants in Participants)
-            //{
-            //    _context.Participant.Add(participants);
-            //    await _context.SaveChangesAsync();
-            //}
 
             _context.Program.Add(Program);
             await _context.SaveChangesAsync();
