@@ -9,7 +9,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #456884;
 }
 
 .btn-primary {
@@ -22,6 +22,10 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.nav-link {
+    color: #456884;
 }
 
 /* Sticky footer styles
@@ -59,8 +63,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #B4C2CD;
 }
 .footer {
   position: absolute;
@@ -69,3 +74,23 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+nav {
+    background-color: #003057;
+    height:50px;
+}
+
+.nav-options {
+    color: #FFFFFF;
+    padding: 10px;
+    margin: 0px 10px 10px 10px;
+    text-shadow: 0 0 1px #B4C2CD;
+    font-size: 20px;
+}
+    .nav-options:hover {
+        color: #FFFFFF;
+        padding: 10px;
+        margin: 0px 10px 10px 10px;
+        text-shadow: 0 0 20px #B4C2CD;
+        font-size: 20px;
+    }

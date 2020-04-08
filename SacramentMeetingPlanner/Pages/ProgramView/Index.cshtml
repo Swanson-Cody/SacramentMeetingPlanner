@@ -5,15 +5,25 @@
     ViewData["Title"] = "Programs";
 }
 
-<h1>Programs</h1>
+    <head>
+        <link rel="stylesheet" href="~/css/Index.css" />
+    </head>
+    <div>
+        <h1>Programs</h1>
 
-<p>
-    <a asp-page="Create">Create New Program</a>
-</p>
-
+        <p>
+            <a class="create" asp-page="Create">+ New Program</a>
+        </p>
+    </div>
+<div>
 @foreach (var item in Model.Program)
 {
     <h5>
-        <a asp-page="DisplayProgram" asp-route-id="@item.ProgramID">@Html.DisplayFor(Model => item.DateOfMeeting)<a asp-page="./Edit" asp-route-id="@item.ProgramID">Edit</a> <span>|</span> <a asp-page="./Delete" asp-route-id="@item.ProgramID">Delete</a></a>
+        <a class="date" asp-page="DisplayProgram" asp-route-id="@item.ProgramID">
+        @Html.DisplayFor(Model => item.DateOfMeeting)
+        <a class="edit" asp-page="./Edit" asp-route-id="@item.ProgramID">Edit</a>
+        <span>|</span> 
+        <a class="delete" asp-page="./Delete" asp-route-id="@item.ProgramID">Delete</a></a>
     </h5>
 }
+    </div>
