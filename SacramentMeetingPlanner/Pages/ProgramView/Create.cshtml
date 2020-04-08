@@ -19,20 +19,41 @@
                 <input asp-for="Program.DateOfMeeting" class="form-control" />
                 <span asp-validation-for="Program.DateOfMeeting" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Program.ConductingLeader" class="control-label"></label>
-                <input asp-for="Program.ConductingLeader" class="form-control" />
-                <span asp-validation-for="Program.ConductingLeader" class="text-danger"></span>
+                <input asp-for="Program.Participants[0].ParticipantRole" value="@ParticipantRoles.PresidingLeader.ToString()" type="hidden" />
+                <label class="control-label">Presiding</label>
+                <select asp-for="Program.Participants[0].ParticipantTitle" asp-items="Html.GetEnumSelectList<TitleOfPerson>()" class="form-control">
+                    <option selected="selected" value="">Title</option>
+                </select>
+                <input asp-for="Program.Participants[0].FullNameOfParticipant" class="form-control" />
+                <span asp-validation-for="Program.Participants[0]" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <input asp-for="Program.Participants[1].ParticipantRole" value="@ParticipantRoles.ConductingLeader.ToString()" type="hidden" />
+                <label class="control-label">Conducting</label>
+                <select asp-for="Program.Participants[1].ParticipantTitle" asp-items="Html.GetEnumSelectList<TitleOfPerson>()" class="form-control">
+                    <option selected="selected" value="">Title</option>
+                </select>
+                <input asp-for="Program.Participants[1].FullNameOfParticipant" class="form-control" />
+                <span asp-validation-for="Program.Participants[1]" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="Program.OpeningSong" class="control-label"></label>
                 <input asp-for="Program.OpeningSong" class="form-control" />
                 <span asp-validation-for="Program.OpeningSong" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Program.OpeningPrayer" class="control-label"></label>
-                <input asp-for="Program.OpeningPrayer" class="form-control" />
-                <span asp-validation-for="Program.OpeningPrayer" class="text-danger"></span>
+                <input asp-for="Program.Participants[2].ParticipantRole" value="@ParticipantRoles.OpeningPrayer.ToString()" type="hidden" />
+                <label class="control-label">Opening Prayer</label>
+                <select asp-for="Program.Participants[2].ParticipantTitle" asp-items="Html.GetEnumSelectList<TitleOfPerson>()" class="form-control">
+                    <option selected="selected" value="">Title</option>
+                </select>
+                <input asp-for="Program.Participants[2].FullNameOfParticipant" class="form-control" />
+                <span asp-validation-for="Program.Participants[2]" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Program.SacramentHymn" class="control-label"></label>
@@ -40,39 +61,48 @@
                 <span asp-validation-for="Program.SacramentHymn" class="text-danger"></span>
             </div>
 
-            <div>
-                <label>Speakers</label>
-                @for (int i = 0; i < Model.Speakers.Count; i++)
-                {
-                    <input asp-for="@i" type="hidden" />
-                    <div class="form-group">
-                        <select asp-for="@Model.Speakers[i].SpeakerTitle" asp-items="Html.GetEnumSelectList<Title.TitleOfPerson>()" class="form-control">
-                            <option selected="selected" value="">Title</option>
-                        </select>
-                        <input type="text" class="form-control" asp-for="@Model.Speakers[i].FullNameOfSpeaker" placeholder="Enter full name here.">
-                        <input type="text" class="form-control" asp-for="@Model.Speakers[i].TalkSubject" placeholder="Enter subject of talk here.">
-                    </div>
-
-                    <button type="submit" asp-page-handler="removeSpeaker" asp-route-id="@i" asp-route-index="@i">x</button>
-                }
-                <button type="submit" asp-page-handler="addSpeaker">Add Speaker</button>
-            </div>
-
             <div class="form-group">
                 <label asp-for="Program.IntermediateMusic" class="control-label"></label>
                 <input asp-for="Program.IntermediateMusic" class="form-control" />
                 <span asp-validation-for="Program.IntermediateMusic" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Program.ClosingSong" class="control-label"></label>
                 <input asp-for="Program.ClosingSong" class="form-control" />
                 <span asp-validation-for="Program.ClosingSong" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Program.ClosingPrayer" class="control-label"></label>
-                <input asp-for="Program.ClosingPrayer" class="form-control" />
-                <span asp-validation-for="Program.ClosingPrayer" class="text-danger"></span>
+                <input asp-for="Program.Participants[3].ParticipantRole" value="@ParticipantRoles.ClosingPrayer.ToString()" type="hidden" />
+                <label class="control-label">Closing Prayer</label>
+                <select asp-for="Program.Participants[3].ParticipantTitle" asp-items="Html.GetEnumSelectList<TitleOfPerson>()" class="form-control">
+                    <option selected="selected" value="">Title</option>
+                </select>
+                <input asp-for="Program.Participants[3].FullNameOfParticipant" class="form-control" />
+                <span asp-validation-for="Program.Participants[3]" class="text-danger"></span>
             </div>
+            
+            <div>
+                <label>Speakers</label>
+                @for (int i = 4; i < Model.Program.Participants.Where(x => x.ParticipantRole == ParticipantRoles.Speaker.ToString()).ToList().Count + 4; i++)
+                {
+                    <input asp-for="@i" type="hidden" />
+                    <input asp-for="Program.Participants[i].ParticipantRole" value="@ParticipantRoles.Speaker.ToString()" type="hidden" />
+                    <div class="form-group">
+                        <select asp-for="@Model.Program.Participants[i].ParticipantTitle" asp-items="Html.GetEnumSelectList<TitleOfPerson>()" class="form-control">
+                            <option selected="selected" value="">Title</option>
+                        </select>
+                        <input asp-for="Program.Participants[i].ParticipantTitle" value="" type="hidden" />
+                        <input type="text" class="form-control" asp-for="@Model.Program.Participants[i].FullNameOfParticipant" placeholder="Enter full name here.">
+                        <input type="text" class="form-control" asp-for="@Model.Program.Participants[i].TalkSubject" placeholder="Enter subject of talk here.">
+                    </div>
+
+                    <button type="submit" asp-page-handler="removeParticipant" asp-route-id="@i" asp-route-index="@i">x</button>
+                }
+                <button type="submit" asp-page-handler="addParticipant">Add Speaker</button>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" asp-page-handler="saveprogram" class="btn btn-primary" />
             </div>

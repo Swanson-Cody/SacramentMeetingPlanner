@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SacramentMeetingPlanner.Data;
 
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    partial class SacramentMeetingPlannerContextModelSnapshot : ModelSnapshot
+    [Migration("20200407235416_UpdatedModels")]
+    partial class UpdatedModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,13 +31,10 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<string>("FullNameOfParticipant")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ParticipantRole")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ParticipantTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProgramID")
+                    b.Property<int?>("ProgramID")
                         .HasColumnType("int");
 
                     b.Property<string>("TalkSubject")
@@ -55,8 +54,14 @@ namespace SacramentMeetingPlanner.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("ClosingPrayerParticipantID")
+                        .HasColumnType("int");
+
                     b.Property<string>("ClosingSong")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ConductingLeaderParticipantID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfMeeting")
                         .HasColumnType("datetime2");
@@ -64,13 +69,27 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<string>("IntermediateMusic")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OpeningPrayerParticipantID")
+                        .HasColumnType("int");
+
                     b.Property<string>("OpeningSong")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PresidingLeaderParticipantID")
+                        .HasColumnType("int");
 
                     b.Property<string>("SacramentHymn")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProgramID");
+
+                    b.HasIndex("ClosingPrayerParticipantID");
+
+                    b.HasIndex("ConductingLeaderParticipantID");
+
+                    b.HasIndex("OpeningPrayerParticipantID");
+
+                    b.HasIndex("PresidingLeaderParticipantID");
 
                     b.ToTable("Program");
                 });
@@ -79,9 +98,26 @@ namespace SacramentMeetingPlanner.Migrations
                 {
                     b.HasOne("SacramentMeetingPlanner.Models.Program", null)
                         .WithMany("Participants")
-                        .HasForeignKey("ProgramID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProgramID");
+                });
+
+            modelBuilder.Entity("SacramentMeetingPlanner.Models.Program", b =>
+                {
+                    b.HasOne("SacramentMeetingPlanner.Models.Participant", "ClosingPrayer")
+                        .WithMany()
+                        .HasForeignKey("ClosingPrayerParticipantID");
+
+                    b.HasOne("SacramentMeetingPlanner.Models.Participant", "ConductingLeader")
+                        .WithMany()
+                        .HasForeignKey("ConductingLeaderParticipantID");
+
+                    b.HasOne("SacramentMeetingPlanner.Models.Participant", "OpeningPrayer")
+                        .WithMany()
+                        .HasForeignKey("OpeningPrayerParticipantID");
+
+                    b.HasOne("SacramentMeetingPlanner.Models.Participant", "PresidingLeader")
+                        .WithMany()
+                        .HasForeignKey("PresidingLeaderParticipantID");
                 });
 #pragma warning restore 612, 618
         }

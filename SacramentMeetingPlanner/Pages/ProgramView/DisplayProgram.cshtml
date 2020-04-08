@@ -6,9 +6,18 @@
 <head>
     <link rel="stylesheet" href="~/css/DisplayProgram.css" />
 </head>
-<div>
-    <h1> Sacrament Program</h1>
-    
-    
+<div class="sacrament-program">
+    <h1>Sacrament Program</h1>
+    <h3>@Model.Program.DateOfMeeting.ToShortDateString()</h3>
 
+    @*<p>@Html.DisplayNameFor(Model => Model.Program.PresidingLeader)</p>
+    <p>@Model.Program.Participants.Where(x => x)</p>*@
+
+    @foreach (var participant in @Model.Program.Participants)
+    {
+        <p>@Html.DisplayFor(Model => participant.ParticipantRole)</p>
+        <p>@Html.DisplayFor(Model => participant.ParticipantTitle)</p>
+        <p>@Html.DisplayFor(Model => participant.FullNameOfParticipant)</p>
+        <p>@Html.DisplayFor(Model => participant.TalkSubject)</p>
+    }
 </div>

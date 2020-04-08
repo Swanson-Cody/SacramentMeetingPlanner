@@ -15,12 +15,27 @@ namespace SacramentMeetingPlanner.Pages.Program
         private readonly SacramentMeetingPlanner.Data.SacramentMeetingPlannerContext _context;
         
         [BindProperty]
-        public List<Speaker> Speakers { get; set; }
+        public List<Participant> Participants { get; set; }
 
         public CreateModel(SacramentMeetingPlanner.Data.SacramentMeetingPlannerContext context)
         {
             _context = context;
-            Speakers = new List<Speaker> { new Speaker() };
+            Program = new Models.Program
+            {
+                DateOfMeeting = DateTime.Now, 
+                Participants = new List<Participant>
+                {
+                    new Participant(), 
+                    new Participant(), 
+                    new Participant(), 
+                    new Participant(), 
+                    new Participant
+                    {
+                        ParticipantRole = ParticipantRoles.Speaker.ToString()
+                    }
+                }
+            };
+            //Program.Participants = new List<Participant> { new Participant() };
         }
 
         public IActionResult OnGet()
@@ -31,14 +46,14 @@ namespace SacramentMeetingPlanner.Pages.Program
         [BindProperty]
         public Models.Program Program { get; set; }
 
-        public async Task OnPostAddSpeakerAsync()
+        public async Task OnPostAddParticipantAsync()
         {
-            Speakers.Add(new Speaker());
+            Program.Participants.Add(new Participant{ ParticipantRole = ParticipantRoles.Speaker.ToString() });
         }
 
-        public async Task OnPostRemoveSpeakerAsync(int index)
+        public async Task OnPostRemoveParticipantAsync(int index)
         {
-            Speakers.RemoveAt(index);
+            Program.Participants.RemoveAt(index);
             ModelState.Clear();
         }
 
@@ -51,15 +66,15 @@ namespace SacramentMeetingPlanner.Pages.Program
             {
                 return Page();
             }
+
+            //foreach (var participants in Participants)
+            //{
+            //    _context.Participant.Add(participants);
+            //    await _context.SaveChangesAsync();
+            //}
+
             _context.Program.Add(Program);
             await _context.SaveChangesAsync();
-
-            foreach (var speakers in Speakers)
-            {
-                speakers.ProgramId = Program.ProgramID;
-                _context.Speaker.Add(speakers);
-                await _context.SaveChangesAsync();
-            }
 
             return RedirectToPage("./Index");
         }

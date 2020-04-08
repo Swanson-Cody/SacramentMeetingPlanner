@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 
 namespace SacramentMeetingPlanner.Models
 {
-    public class Title
-    {
-        public enum TitleOfPerson
+    public enum TitleOfPerson
         {
             Brother,
             Sister,
@@ -16,5 +14,4 @@ namespace SacramentMeetingPlanner.Models
             Bishop,
             Elder
         }
-    }
 }

@@ -31,6 +31,7 @@ namespace SacramentMeetingPlanner.Pages.Program
             }
 
             Program = await _context.Program.FirstOrDefaultAsync(m => m.ProgramID == id);
+            Program.Participants = await _context.Participant.Where(x => x.ProgramID == Program.ProgramID).ToListAsync();
 
             if (Program == null)
             {

@@ -20,12 +20,12 @@ namespace SacramentMeetingPlanner.Pages.Program
         }
 
         public IList<Models.Program> Program { get;set; }
-        public IList<Models.Speaker> Speakers { get; set; }
+        public IList<Models.Participant> Speakers { get; set; }
 
         public async Task OnGetAsync()
         {
             Program = await _context.Program.ToListAsync();
-            Speakers = await _context.Speaker.ToListAsync();
+            Speakers = await _context.Participant.ToListAsync();
         }
     }
 }
