@@ -35,8 +35,10 @@
         </div>
     </div>
 
-    <div>Opening Song</div>
-    <div>@Model.Program.OpeningSong</div>
+    <div class="row line">
+        <div class="col-sm">Opening Song</div>
+        <div class="col-sm">@Model.Program.OpeningSong</div>
+    </div>
 
     <div class="row line">
         <div class="participant-role col-sm">@Html.DisplayFor(Model => openingPrayer.ParticipantRole)</div>
@@ -45,12 +47,20 @@
             <span class="participant-name">@Html.DisplayFor(Model => openingPrayer.FullNameOfParticipant)</span>
         </div>
     </div>
-    <div>Ward Business</div>
 
-    <div>Sacrament Song</div>
-    <div>@Model.Program.SacramentHymn</div>
-    <div>Administration of the Sacrament.</div>
-    
+    <div class="row line">
+        <div class="col-sm">Ward Business</div>
+    </div>
+
+    <div class="row line">
+        <div class="col-sm">Sacrament Song</div>
+        <span class="col-sm">@Model.Program.SacramentHymn</span>
+    </div>
+
+    <div class="row line">
+        <div class="col-sm">Administration of the Sacrament.</div>
+    </div>
+
     @foreach (var speaker in speakers)
     {
         <div class="row line">
@@ -61,18 +71,20 @@
             </div>
         </div>
     }
-    
-    <div>Closing Song</div>
-    <div>@Model.Program.ClosingSong</div>
-    
+
     <div class="row line">
-        <div class="participant-role col-sm">@Html.DisplayFor(Model => closingPrayer.ParticipantRole)</div>
-        <div class="participant-title col-sm">
-            @Html.DisplayFor(Model => closingPrayer.ParticipantTitle)
-            <span class="participant-name">@Html.DisplayFor(Model => closingPrayer.FullNameOfParticipant)</span>
-        </div>
+        <div class="col-sm">Closing Song</div>
+        <div class="col-sm">@Model.Program.ClosingSong</div>
     </div>
-    <br />
-    <br />
-</div>
-<a asp-page="./Index">Back to Programs</a>
+
+        <div class="row line">
+            <div class="participant-role col-sm">@Html.DisplayFor(Model => closingPrayer.ParticipantRole)</div>
+            <div class="participant-title col-sm">
+                @Html.DisplayFor(Model => closingPrayer.ParticipantTitle)
+                <span class="participant-name">@Html.DisplayFor(Model => closingPrayer.FullNameOfParticipant)</span>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <a asp-page="./Index">Back to Programs</a>
