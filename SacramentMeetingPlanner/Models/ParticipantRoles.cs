@@ -1,21 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace SacramentMeetingPlanner.Models
 {
     public enum ParticipantRoles
     {
-        [Display(Name = "Presiding")]
+        [Description("{Presiding")]
         PresidingLeader,
 
-        [Display(Name = "Conductor")]
+        [Description("Conducting")]
         ConductingLeader,
 
         Speaker,
 
-        [Display(Name = "Opening Prayer")]
+        [Description("Opening Prayer")]
         OpeningPrayer,
 
-        [Display(Name = "Closing Prayer")]
+        [Description("Closing Prayer")]
         ClosingPrayer
     }
 }

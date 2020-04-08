@@ -24,7 +24,7 @@
                 <input asp-for="Program.Participants[0].ParticipantRole" value="@ParticipantRoles.PresidingLeader.ToString()" type="hidden" />
                 <label class="control-label">Presiding</label>
                 <select asp-for="Program.Participants[0].ParticipantTitle" class="form-control">
-                    <option disabled>Title</option>
+                    <option disabled selected>Title</option>
                     <option value="Bishop">Bishop</option>
                     <option value="Brother">Brother</option>
                     <option value="Elder">Elder</option>
@@ -32,7 +32,7 @@
                     <option value="President">President</option>
                     <option value="Counselor">Counselor</option>
                 </select>
-                <input asp-for="Program.Participants[0].FullNameOfParticipant" class="form-control" placeholder="last name"/>
+                <input asp-for="Program.Participants[0].FullNameOfParticipant" class="form-control" placeholder="Name"/>
                 <span asp-validation-for="Program.Participants[0]" class="text-danger"></span>
             </div>
 
@@ -40,7 +40,7 @@
                 <input asp-for="Program.Participants[1].ParticipantRole" value="@ParticipantRoles.ConductingLeader.ToString()" type="hidden" />
                 <label class="control-label">Conducting</label>
                 <select asp-for="Program.Participants[1].ParticipantTitle" class="form-control">
-                    <option disabled>Title</option>
+                    <option disabled selected>Title</option>
                     <option value="Bishop">Bishop</option>
                     <option value="Brother">Brother</option>
                     <option value="Elder">Elder</option>
@@ -48,7 +48,7 @@
                     <option value="President">President</option>
                     <option value="Counselor">Counselor</option>
                 </select>
-                <input asp-for="Program.Participants[1].FullNameOfParticipant" class="form-control" placeholder="last name"/>
+                <input asp-for="Program.Participants[1].FullNameOfParticipant" class="form-control" placeholder="Name"/>
                 <span asp-validation-for="Program.Participants[1]" class="text-danger"></span>
             </div>
 
@@ -62,7 +62,7 @@
                 <input asp-for="Program.Participants[2].ParticipantRole" value="@ParticipantRoles.OpeningPrayer.ToString()" type="hidden" />
                 <label class="control-label">Opening Prayer</label>
                 <select asp-for="Program.Participants[2].ParticipantTitle" class="form-control">
-                    <option disabled>Title</option>
+                    <option disabled selected>Title</option>
                     <option value="Bishop">Bishop</option>
                     <option value="Brother">Brother</option>
                     <option value="Elder">Elder</option>
@@ -70,7 +70,7 @@
                     <option value="President">President</option>
                     <option value="Counselor">Counselor</option>
                 </select>
-                <input asp-for="Program.Participants[2].FullNameOfParticipant" class="form-control" placeholder="last name"/>
+                <input asp-for="Program.Participants[2].FullNameOfParticipant" class="form-control" placeholder="Name"/>
                 <span asp-validation-for="Program.Participants[2]" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -95,7 +95,13 @@
                 <input asp-for="Program.Participants[3].ParticipantRole" value="@ParticipantRoles.ClosingPrayer.ToString()" type="hidden" />
                 <label class="control-label">Closing Prayer</label>
                 <select asp-for="Program.Participants[3].ParticipantTitle" class="form-control">
-                    <option disabled>Title</option>
+                    <option disabled selected>Title</option>
+                    <option value="Bishop">Bishop</option>
+                    <option value="Brother">Brother</option>
+                    <option value="Elder">Elder</option>
+                    <option value="Sister">Sister</option>
+                    <option value="President">President</option>
+                    <option value="Counselor">Counselor</option>
                 </select>
                 <input asp-for="Program.Participants[3].FullNameOfParticipant" class="form-control" />
                 <span asp-validation-for="Program.Participants[3]" class="text-danger"></span>
@@ -109,7 +115,7 @@
                     <input asp-for="Program.Participants[i].ParticipantRole" value="@ParticipantRoles.Speaker.ToString()" type="hidden" />
                     <div class="form-group">
                         <select asp-for="@Model.Program.Participants[i].ParticipantTitle" class="form-control">
-                            <option disabled>Title</option>
+                            <option disabled selected>Title</option>
                             <option value="Bishop">Bishop</option>
                             <option value="Brother">Brother</option>
                             <option value="Elder">Elder</option>

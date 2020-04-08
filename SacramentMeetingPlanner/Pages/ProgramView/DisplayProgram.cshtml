@@ -15,9 +15,9 @@
 
     @foreach (var participant in @Model.Program.Participants)
     {
-        <p>@Html.DisplayFor(Model => participant.ParticipantRole)</p>
-        <p>@Html.DisplayFor(Model => participant.ParticipantTitle)</p>
-        <p>@Html.DisplayFor(Model => participant.FullNameOfParticipant)</p>
-        <p>@Html.DisplayFor(Model => participant.TalkSubject)</p>
+        <p class="participant-role">@Html.DisplayFor(Model => participant.ParticipantRole)</p>
+        <p class="participant-title">@Html.DisplayFor(Model => participant.ParticipantTitle)</p>
+        <p class="participant-name">@Html.DisplayFor(Model => participant.FullNameOfParticipant)</p>
+        <p class="talk-subject">@Html.DisplayFor(Model => participant.TalkSubject)</p>
     }
 </div>
