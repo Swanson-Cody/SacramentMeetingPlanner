@@ -2,10 +2,10 @@
 @model SacramentMeetingPlanner.Pages.Program.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete Program";
 }
 
-<h1>Delete</h1>
+<h1>Delete Program</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -51,6 +51,6 @@
     <form method="post">
         <input type="hidden" asp-for="Program.ProgramID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a asp-page="./Index">Back to Programs</a>
     </form>
 </div>

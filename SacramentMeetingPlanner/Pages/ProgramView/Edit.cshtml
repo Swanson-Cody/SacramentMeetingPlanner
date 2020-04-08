@@ -5,11 +5,11 @@
 @model SacramentMeetingPlanner.Pages.Program.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Program";
     var conductingLeader = Model.Program.Participants.FirstOrDefault(x => x.ParticipantRole == ParticipantRoles.ConductingLeader.ToString());
 }
 
-<h1>Edit</h1>
+<h1>Edit Program</h1>
 
 <h4>Program</h4>
 <hr />
@@ -113,7 +113,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Back to Programs</a>
 </div>
 
 @section Scripts {
