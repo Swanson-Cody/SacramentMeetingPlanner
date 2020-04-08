@@ -8,8 +8,9 @@ button {
 
 button {
     margin-top: -10px;
+    margin-bottom: 20px;
 }
 
 button:last-of-type {
-    margin-top: 20px;
+    margin-top: 25px;
 }
