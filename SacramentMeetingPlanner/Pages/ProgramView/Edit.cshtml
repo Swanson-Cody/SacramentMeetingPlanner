@@ -124,7 +124,7 @@
                 {
                     <input asp-for="@i" type="hidden" />
                     <input asp-for="Program.Participants[i].ProgramID" value="@programId" type="hidden" />
-                    <input asp-for="Program.Participants[i].ParticipantID" value="@Model.Program.Participants[i].ParticipantID" type="hidden" />                    <input asp-for="Program.Participants[i].ParticipantRole" value="@ParticipantRoles.Speaker.ToString()" type="hidden" />
+                    <input asp-for="Program.Participants[i].ParticipantID" value="@Model.Program.Participants[i].ParticipantID" type="hidden" /> <input asp-for="Program.Participants[i].ParticipantRole" value="@ParticipantRoles.Speaker.ToString()" type="hidden" />
                     <div class="form-group">
                         <select asp-for="@Model.Program.Participants[i].ParticipantTitle" class="form-control">
                             <option disabled>Title</option>
@@ -141,10 +141,13 @@
                     </div>
 
                     <button type="submit" asp-page-handler="removeParticipant" asp-route-id="@i" asp-route-index="@i">Remove Speaker</button>
+                    <br />
+                    <br />
                 }
                 <button type="submit" asp-page-handler="addParticipant">Add Speaker</button>
             </div>
-            
+            <br />
+            <br />
             <div class="form-group">
                 <input type="submit" value="Update Program" asp-page-handler="saveprogram" class="btn btn-primary" />
             </div>

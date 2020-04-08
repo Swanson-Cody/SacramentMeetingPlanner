@@ -82,14 +82,15 @@
         <div class="col-sm">@Model.Program.ClosingSong</div>
     </div>
 
-        <div class="row line">
-            <div class="participant-role col-sm">@Html.DisplayFor(Model => closingPrayer.ParticipantRole)</div>
-            <div class="participant-title col-sm">
-                @Html.DisplayFor(Model => closingPrayer.ParticipantTitle)
-                <span class="participant-name">@Html.DisplayFor(Model => closingPrayer.FullNameOfParticipant)</span>
-            </div>
+    <div class="row line">
+        <div class="participant-role col-sm">@Html.DisplayFor(Model => closingPrayer.ParticipantRole)</div>
+        <div class="participant-title col-sm">
+            @Html.DisplayFor(Model => closingPrayer.ParticipantTitle)
+            <span class="participant-name">@Html.DisplayFor(Model => closingPrayer.FullNameOfParticipant)</span>
         </div>
-        <br />
-        <br />
     </div>
-    <a asp-page="./Index">Back to Programs</a>
+    <br />
+    <br />
+</div>
+<br />
+<a asp-page="./Index">Back to Programs</a>
