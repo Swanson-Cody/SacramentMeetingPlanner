@@ -24,9 +24,9 @@
                 <input asp-for="Program.Participants[0].ParticipantRole" value="@ParticipantRoles.PresidingLeader.ToString()" type="hidden" />
                 <label class="control-label">Presiding</label>
                 <select asp-for="Program.Participants[0].ParticipantTitle" asp-items="Html.GetEnumSelectList<TitleOfPerson>()" class="form-control">
-                    <option selected="selected" value="">Title</option>
+                    <option selected="selected" disabled value="">Title</option>
                 </select>
-                <input asp-for="Program.Participants[0].FullNameOfParticipant" class="form-control" />
+                <input asp-for="Program.Participants[0].FullNameOfParticipant" class="form-control" placeholder="last name"/>
                 <span asp-validation-for="Program.Participants[0]" class="text-danger"></span>
             </div>
 
@@ -34,9 +34,9 @@
                 <input asp-for="Program.Participants[1].ParticipantRole" value="@ParticipantRoles.ConductingLeader.ToString()" type="hidden" />
                 <label class="control-label">Conducting</label>
                 <select asp-for="Program.Participants[1].ParticipantTitle" asp-items="Html.GetEnumSelectList<TitleOfPerson>()" class="form-control">
-                    <option selected="selected" value="">Title</option>
+                    <option selected="selected" disabled value="">Title</option>
                 </select>
-                <input asp-for="Program.Participants[1].FullNameOfParticipant" class="form-control" />
+                <input asp-for="Program.Participants[1].FullNameOfParticipant" class="form-control" placeholder="last name"/>
                 <span asp-validation-for="Program.Participants[1]" class="text-danger"></span>
             </div>
 
@@ -50,9 +50,9 @@
                 <input asp-for="Program.Participants[2].ParticipantRole" value="@ParticipantRoles.OpeningPrayer.ToString()" type="hidden" />
                 <label class="control-label">Opening Prayer</label>
                 <select asp-for="Program.Participants[2].ParticipantTitle" asp-items="Html.GetEnumSelectList<TitleOfPerson>()" class="form-control">
-                    <option selected="selected" value="">Title</option>
+                    <option selected="selected" disabled value="">Title</option>
                 </select>
-                <input asp-for="Program.Participants[2].FullNameOfParticipant" class="form-control" />
+                <input asp-for="Program.Participants[2].FullNameOfParticipant" class="form-control" placeholder="last name"/>
                 <span asp-validation-for="Program.Participants[2]" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -77,7 +77,7 @@
                 <input asp-for="Program.Participants[3].ParticipantRole" value="@ParticipantRoles.ClosingPrayer.ToString()" type="hidden" />
                 <label class="control-label">Closing Prayer</label>
                 <select asp-for="Program.Participants[3].ParticipantTitle" asp-items="Html.GetEnumSelectList<TitleOfPerson>()" class="form-control">
-                    <option selected="selected" value="">Title</option>
+                    <option selected="selected" disabled value="">Title</option>
                 </select>
                 <input asp-for="Program.Participants[3].FullNameOfParticipant" class="form-control" />
                 <span asp-validation-for="Program.Participants[3]" class="text-danger"></span>
