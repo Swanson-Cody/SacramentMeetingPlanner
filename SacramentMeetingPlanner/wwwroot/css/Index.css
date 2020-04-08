@@ -1,11 +1,12 @@
 ﻿.date {
-    margin: 0px 0px 5px 0px;
-    color: #456884;
+    margin-right: 10px;
+    color: #FFFFFF;
 }
 
-.date:hover {
-    color: #456884;
-}
+    .date:hover {
+        color: #FFFFFF;
+        text-shadow: 0 0 15px #003057;
+    }
 
 .delete {
     color:darkred;
@@ -41,14 +42,14 @@ h5{
 }
 
 .edit {
-    margin: 5px;
+    margin-left: 10px;
     color: #456884;
 }
 
-.edit:hover {
-    margin: 5px;
-    color: #456884;
-}
+    .edit:hover {
+        margin-left: 15px;
+        color: #456884;
+    }
 
 h1 {
     color: #2B5273;
