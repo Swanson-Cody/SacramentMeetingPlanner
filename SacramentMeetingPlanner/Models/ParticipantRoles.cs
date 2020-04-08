@@ -11,10 +11,10 @@ namespace SacramentMeetingPlanner.Models
         [Description("Conducting")]
         ConductingLeader,
 
-        Speaker,
-
         [Description("Opening Prayer")]
         OpeningPrayer,
+
+        Speaker,
 
         [Description("Closing Prayer")]
         ClosingPrayer
