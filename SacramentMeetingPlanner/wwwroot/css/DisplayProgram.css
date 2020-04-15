@@ -1,17 +1,11 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
 .sacrament-program {
+    box-shadow: 0 4px 8px 0 #d3d3d3, 0 6px 20px 0 #d3d3d3;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-family: 'Cinzel', serif;
     background-color: #fffeff;
 }
-
-/*
-dark blue #003057
-light blue #3e6380
-white fffeff
-
-*/
 
 .jumbotron {
     background-color: #003057;

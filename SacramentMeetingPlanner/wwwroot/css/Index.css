@@ -3,10 +3,10 @@
     color: #FFFFFF;
 }
 
-    .date:hover {
-        color: #FFFFFF;
-        text-shadow: 0 0 15px #003057;
-    }
+.date:hover {
+    color: #FFFFFF;
+    text-shadow: 0 0 15px #003057;
+}
 
 .delete {
     color:darkred;
@@ -26,6 +26,7 @@ h5{
 }
 
 .create {
+    -ms-border-radius: 5px 5px;
     border-radius: 5px 5px;
     color: #456884;
     padding-left: 5px;
@@ -37,6 +38,7 @@ h5{
     float: left;
     margin-top:15px;
 }
+
 .create:hover {
     color: #456884;
 }
